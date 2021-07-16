@@ -1,8 +1,7 @@
-import React, {FC} from "react"
+import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
-import Highscores from "../features/highscores/Highscores"
-import SingleHighscore from "../features/highscores/SingleHighscore"
-import { setStatusBarHidden } from "expo-status-bar"
+import Highscores from "../screens/Highscores"
+import SingleHighscore from "../screens/SingleHighscore"
 const Stack = createStackNavigator()
 
 const HighscoreStack = () => {
