@@ -38,7 +38,7 @@ const SingleHighscore = ({ route, navigation }: HighscoreRoute ) => {
   return (
     <SafeAreaView style={styles.wrapper}>
       <Pressable style={styles.backButton} onPress={() => navigation.goBack()}>
-        <Image style={styles.backIcon} source={Platform.OS === 'ios' ? require('../../assets/back-icon.png') : require('../../assets/close-icon.png')} />
+        <Image style={styles.backIcon} source={Platform.OS === 'ios' ? require('../assets/back-icon.png') : require('../assets/close-icon.png')} />
       </Pressable>
       <View style={styles.header}>
         <Text style={[TypeScale.p, styles.info]}>{new Date(route.params.highscore.date).toISOString().slice(0,10).replace(/-/g, '/')}</Text>

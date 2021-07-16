@@ -16,7 +16,7 @@ const HighscoreBandCard = ({ band }: Props) => {
       band.url ? (
         <Image style={styles.bandImage} source={{ uri: band.url }} />
       ) : (
-        <Image style={styles.gameOverImage} source={require('../../assets/game-over.png')} />
+        <Image style={styles.gameOverImage} source={require('../assets/game-over.png')} />
       )
     }
 
