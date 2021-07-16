@@ -1,12 +1,12 @@
 import React from 'react'
 import {Image, StyleSheet, Dimensions } from 'react-native'
 
-const logoWidth = Dimensions.get("window").width * 0.95
-const logoHeight = logoWidth * 0.75
+export const logoWidth = Dimensions.get("window").width * 0.95
+export const logoHeight = logoWidth * 0.75
 
 const LogoSquare = () => {
   return (
-    <Image style={styles.logoSquare} source={require('../assets/bandfeudLogoSquareGray.png')} />
+    <Image style={styles.logoSquare} source={require('../assets/bandfeud-logo-square-grey.png')} />
   )
 }
 
