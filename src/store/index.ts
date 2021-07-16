@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
-import highscoreReducer from '../features/highscores/highscoreSlice'
+import highscoreReducer from './highscores/highscoreSlice'
+import bandsReducer from './bands/bandsSlice'
 
 export const store = configureStore({
   reducer: {
-    highscores: highscoreReducer
+    highscores: highscoreReducer,
+    bands: bandsReducer
   }
 })
 

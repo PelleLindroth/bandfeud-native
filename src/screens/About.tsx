@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import BaseView from '../../constants/BaseView'
-import LogoSquare from '../../components/LogoSquare'
-import TypeScale from '../../constants/TypeScale'
+import BaseView from '../components/BaseView'
+import LogoSquare from '../components/LogoSquare'
+import TypeScale from '../constants/TypeScale'
 
-const About : FC = () => {
+const About = () => {
   return (
     <BaseView>
       <LogoSquare />
