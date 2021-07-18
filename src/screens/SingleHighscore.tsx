@@ -11,8 +11,9 @@ import {
   Platform
 } from 'react-native'
 import { NavigationScreenProp } from 'react-navigation'
-import { Highscore, HighscoreBand } from '../store/highscoreSlice'
-import HighscoreBandCard from '../components/HighscoreBandCard'
+import { Highscore } from '../store/highscoreSlice'
+import { Band } from '../store/bandsSlice'
+import BandCard from '../components/BandCard'
 import Color from '../constants/Color'
 import TypeScale from '../constants/TypeScale'
 import * as Measure from '../constants/Measure'
@@ -27,8 +28,8 @@ type Props = {
 }
 
 const SingleHighscore = ({ route, navigation }: Props ) => {  
-  const renderItem: ListRenderItem<HighscoreBand> = ({ item }) => (
-    <HighscoreBandCard band={item} />
+  const renderItem: ListRenderItem<Band> = ({ item }) => (
+    <BandCard band={item} />
   )
 
   return (
@@ -42,7 +43,7 @@ const SingleHighscore = ({ route, navigation }: Props ) => {
         <Text style={[TypeScale.p, styles.info]}>{`${route.params.highscore.bands.length} BANDS`}</Text>
       </View>
       <Text style={styles.totalScore}>{route.params.highscore.score}p</Text>
-      <FlatList<HighscoreBand>
+      <FlatList<Band>
         data={route.params.highscore.bands}
         horizontal
         renderItem={renderItem}
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   },
   bandList: { 
     alignItems: 'center',
-    paddingHorizontal: Measure.listPadding
+    paddingHorizontal: Measure.LIST_PADDING
   }
 })
 

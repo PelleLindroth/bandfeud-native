@@ -3,7 +3,7 @@ import { Band } from '../store/bandsSlice'
 
 const bandsAPI = axios.create({
   baseURL: 'https://bandfeud-api.herokuapp.com/api/bands'
-});
+})
 
 export type GetBandPayload = {
   used: string[],
@@ -13,11 +13,12 @@ export type GetBandPayload = {
 export const checkBand = (bandName: string) => {  
   return new Promise<Band>(async (resolve, reject) => {
     try {
-      const band = await bandsAPI.post(`/check?name=${encodeURI(bandName.toLowerCase())}`)
-      
-      resolve(band.data)
-    } catch(err) {   
-         
+      const response = await bandsAPI.post(`/check?name=${encodeURI(bandName.toLowerCase())}`)
+      const band = response.data
+      band.url = band.imgUrl
+
+      resolve(band)
+    } catch(err) {          
       reject(err)
     }
   }
@@ -27,9 +28,11 @@ export const checkBand = (bandName: string) => {
 export const getBand = (payload: GetBandPayload) => {  
   return new Promise<Band>(async (resolve, reject) => {
     try {
-      const band = await bandsAPI.post('/get', payload)
-      
-      resolve(band.data)
+      const response = await bandsAPI.post('/get', payload)
+      const band = response.data
+      band.url = band.imgUrl
+
+      resolve(band)
     } catch (err) {      
       reject(err)
     }

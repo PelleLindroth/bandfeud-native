@@ -17,13 +17,13 @@ const Home = ({ navigation }: NavigationProps) => {
 
 const styles = StyleSheet.create({
   logo: {
-    height: Measure.windowWidth * 0.5,
-    width: Measure.windowWidth * 0.7,
+    height: Measure.WINDOW_WIDTH * 0.5,
+    width: Measure.WINDOW_WIDTH * 0.7,
     marginBottom: 20
   },
   playIcon: {
-    height: Measure.iconSide, 
-    width: Measure.iconSide
+    height: Measure.ICON_SIDE, 
+    width: Measure.ICON_SIDE
   },
   input: {
     backgroundColor: 'white', 

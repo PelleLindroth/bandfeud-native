@@ -3,8 +3,12 @@ import { checkBand, getBand, GetBandPayload } from '../api/bandsAPI'
 
 export interface Band {
   name: string,
-  imgUrl: string,
-  discogsId?: number
+  url?: string,
+  imgUrl?: string
+  discogsId?: number,
+  id?: number, 
+  points?: Number, 
+  mode?: string
 }
 
 export interface BandsState {
@@ -37,12 +41,11 @@ export const getBandAsync = createAsyncThunk(
   async (payload: GetBandPayload) => {
     try {
       const band = await getBand(payload)
-      console.log('Band in getBandAsync:', band)
-      
+
       return band
       
     } catch (error) {
-      console.log(error);
+      console.log(error)
       return null 
     }
   } 

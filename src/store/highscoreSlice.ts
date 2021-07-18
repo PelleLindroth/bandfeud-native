@@ -1,20 +1,13 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { fetchHighscores } from "../api/highscoreAPI"
+import { Band } from "./bandsSlice"
 
 export interface Highscore {
   date: number,
-  bands: HighscoreBand[]
+  bands: Band[]
   _id: string,
   score: number,
   player: string
-}
-
-export interface HighscoreBand {
-  name: string, 
-  url?: string, 
-  id?: number, 
-  points?: Number, 
-  mode?: string
 }
 
 export interface HighscoreState {
@@ -30,9 +23,9 @@ const initialState: HighscoreState = {
 export const fetchHighscoresAsync = createAsyncThunk(
   'highscores/fetchHighscores',
   async () => {
-    const highscores = await fetchHighscores() as {data: Highscore[]}
-
-    return highscores.data
+    const highscores = await fetchHighscores() as Highscore[]
+    
+    return highscores
   }
 )
 
