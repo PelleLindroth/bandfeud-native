@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/bandfeud-logo-square.png",
+        "foregroundImage": "./src/assets/square-b.png",
         "backgroundColor": "#FFFFFF"
       }
     },
