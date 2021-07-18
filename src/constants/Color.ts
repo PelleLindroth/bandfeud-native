@@ -1,10 +1,10 @@
 export default {
-  offBlack: '#303030',
-  offWhite: 'rgb(220, 220, 205)',
-  orange: '#e94500',
-  black: 'rgb(14, 15, 14)',
-  darkBlue: 'rgb(24, 35, 113)',
-  lightBlue: 'rgb(82, 187, 232)',
-  gold: 'rgb(247, 175, 73)',
-  red: '#f53f42'
+  OFF_BLACK: '#303030',
+  OFF_WHITE: 'rgb(220, 220, 205)',
+  ORANGE: '#e94500',
+  BLACK: 'rgb(14, 15, 14)',
+  DARK_BLUE: 'rgb(24, 35, 113)',
+  LIGHT_BLUE: 'rgb(82, 187, 232)',
+  GOLD: 'rgb(247, 175, 73)',
+  RED: '#f53f42'
 }
