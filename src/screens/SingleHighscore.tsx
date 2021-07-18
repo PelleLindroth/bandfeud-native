@@ -11,13 +11,13 @@ import {
   Platform
 } from 'react-native'
 import { NavigationScreenProp } from 'react-navigation'
-import { Highscore, HighscoreBand } from '../store/highscores/highscoreSlice'
+import { Highscore, HighscoreBand } from '../store/highscoreSlice'
 import HighscoreBandCard from '../components/HighscoreBandCard'
 import Color from '../constants/Color'
 import TypeScale from '../constants/TypeScale'
 import * as Measure from '../constants/Measure'
 
-type HighscoreRoute = {
+type Props = {
   route: {
     params: {
       highscore: Highscore
@@ -26,11 +26,7 @@ type HighscoreRoute = {
   navigation: NavigationScreenProp<any,any>
 }
 
-// VirtualizedList: You have a large list that is slow to update - make sure 
-// your renderItem function renders components that follow React performance 
-// best practices like PureComponent, shouldComponentUpdate etc.
-
-const SingleHighscore = ({ route, navigation }: HighscoreRoute ) => {  
+const SingleHighscore = ({ route, navigation }: Props ) => {  
   const renderItem: ListRenderItem<HighscoreBand> = ({ item }) => (
     <HighscoreBandCard band={item} />
   )

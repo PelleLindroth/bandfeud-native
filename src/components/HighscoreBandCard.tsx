@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { View, StyleSheet, Image, Text } from 'react-native'
-import { HighscoreBand } from '../store/highscores/highscoreSlice'
+import { HighscoreBand } from '../store/highscoreSlice'
 import TypeScale from '../constants/TypeScale'
 import * as Measure from '../constants/Measure'
 
@@ -8,23 +8,24 @@ type Props = {
   band: HighscoreBand
 }
 
-const HighscoreBandCard = ({ band }: Props) => {
-  return (
-    <View style={styles.bandCard}>
-    <View style={styles.imageWrapper}>
-    {
-      band.url ? (
-        <Image style={styles.bandImage} source={{ uri: band.url }} />
-      ) : (
-        <Image style={styles.gameOverImage} source={require('../assets/game-over.png')} />
-      )
-    }
-
+class HighscoreBandCard extends PureComponent<Props>  {
+  render(){
+    return (
+      <View style={styles.bandCard}>
+      <View style={styles.imageWrapper}>
+      {
+        this.props.band.url ? (
+          <Image style={styles.bandImage} source={{ uri: this.props.band.url }} />
+        ) : (
+          <Image style={styles.gameOverImage} source={require('../assets/game-over.png')} />
+        )
+      }
+      </View>
+      <Text style={TypeScale.h2}>{this.props.band.name}</Text>
+      <Text style={TypeScale.p}>{this.props.band.mode ? this.props.band.mode : this.props.band.points ? `${this.props.band.points}p` : ''}</Text>
     </View>
-    <Text style={TypeScale.h2}>{band.name}</Text>
-    <Text style={TypeScale.p}>{band.mode ? band.mode : band.points ? `${band.points}p` : ''}</Text>
-  </View>
-  )
+    )
+  }
 }
 
 const styles = StyleSheet.create({
