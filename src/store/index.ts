@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
-import highscoreReducer from './highscores/highscoreSlice'
-import bandsReducer from './bands/bandsSlice'
+import highscoreReducer from './highscoreSlice'
+import bandsReducer from './bandsSlice'
 
 export const store = configureStore({
   reducer: {

@@ -3,15 +3,19 @@ import { NavigationScreenProp } from 'react-navigation'
 import BaseView from '../components/BaseView'
 import LogoSquare from "../components/LogoSquare"
 import HighscoreList from '../components/HighscoreList'
-import { Highscore } from '../store/highscores/highscoreSlice'
+import { Highscore } from '../store/highscoreSlice'
 
 type StackProps = {
-  navigation: NavigationScreenProp<any,any>
+  navigation: NavigationScreenProp<any,any>,
+  route: {
+    name: string
+    params?: object
+  }
 }
 
-const Highscores = (props: StackProps ) => {
+const Highscores = ({navigation, route}: StackProps ) => {
   const handleShowHighscore = (highscore: Highscore) => {
-    props.navigation.navigate('Single Highscore',  { highscore })
+    navigation.navigate('Single Highscore',  { highscore })
   }
 
   return (

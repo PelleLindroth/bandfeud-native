@@ -2,7 +2,7 @@ import React, { PureComponent } from "react"
 import { ListRenderItem } from "react-native"
 import { Pressable, Text, FlatList, StyleSheet } from 'react-native'
 import { useAppSelector } from '../store/hooks'
-import { Highscore } from '../store/highscores/highscoreSlice'
+import { Highscore } from '../store/highscoreSlice'
 import Color from "../constants/Color"
 import TypeScale from "../constants/TypeScale"
 

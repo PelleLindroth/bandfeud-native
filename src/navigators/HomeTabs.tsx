@@ -1,11 +1,11 @@
 import React, { useEffect } from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Image } from 'react-native'
-import Home from '../screens/Home'
+import Home from "../screens/Home"
 import About from '../screens/About'
 import HighscoreStack from "./HighscoreStack"
 import { useAppDispatch } from '../store/hooks'
-import { fetchHighscoresAsync } from '../store/highscores/highscoreSlice'
+import { fetchHighscoresAsync } from '../store/highscoreSlice'
 import Color from "../constants/Color"
 import { StyleSheet } from "react-native"
 
