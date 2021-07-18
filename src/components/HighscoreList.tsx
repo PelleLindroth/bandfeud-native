@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     width: '75%'
   },
   column: {
-    color: Color.offWhite,
+    color: Color.OFF_WHITE,
     fontSize: 16,
     fontWeight: '600',
     textTransform: 'uppercase',

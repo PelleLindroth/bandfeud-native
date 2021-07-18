@@ -4,7 +4,7 @@ import Color from "./Color"
 export default StyleSheet.create({
   h1: {
     alignSelf: 'center',
-    color: Color.gold,
+    color: Color.GOLD,
     fontFamily: 'Righteous_400Regular',
     fontSize: 26,
     fontWeight: '700',
@@ -14,7 +14,7 @@ export default StyleSheet.create({
     textTransform: 'uppercase'
   },
   h2: {
-    color: Color.offWhite,
+    color: Color.OFF_WHITE,
     fontSize: 18, 
     fontFamily: 'Righteous_400Regular',
     marginBottom: 8,
@@ -28,7 +28,7 @@ export default StyleSheet.create({
     marginLeft: 5,
   },
   loading: {
-    color: Color.offWhite,
+    color: Color.OFF_WHITE,
     fontSize: 22,
     fontWeight: '700'
   }

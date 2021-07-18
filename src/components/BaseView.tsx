@@ -18,7 +18,7 @@ const BaseView = (props: BaseProps) => {
 const styles = StyleSheet.create({
   wrapper: {
     alignItems: 'center',
-    backgroundColor: Color.offBlack,
+    backgroundColor: Color.OFF_BLACK,
     flex: 1,
     justifyContent: 'center'
   }

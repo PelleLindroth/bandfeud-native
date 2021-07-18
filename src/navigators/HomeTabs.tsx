@@ -33,8 +33,8 @@ const HomeTabs = () => {
       }
     })}
     tabBarOptions={{
-      activeBackgroundColor: Color.offBlack,
-      inactiveBackgroundColor: Color.offBlack,
+      activeBackgroundColor: Color.OFF_BLACK,
+      inactiveBackgroundColor: Color.OFF_BLACK,
       showLabel: false,
       style: [{borderTopWidth: 0}]
     }} initialRouteName="Home">

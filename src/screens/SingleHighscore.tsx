@@ -58,7 +58,7 @@ const SingleHighscore = ({ route, navigation }: Props ) => {
 const styles = StyleSheet.create({
   wrapper: {
     alignItems: 'center',
-    backgroundColor: Color.offBlack,
+    backgroundColor: Color.OFF_BLACK,
     flex: 1,
     position: 'absolute',
     top: 0,
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   totalScore: {
-    color: Color.gold
+    color: Color.GOLD
   },
   bandList: { 
     alignItems: 'center',
