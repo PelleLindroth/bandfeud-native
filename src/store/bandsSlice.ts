@@ -1,13 +1,14 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { checkBand } from '../api/bandsAPI'
+import { checkBand, getBand, GetBandPayload } from '../api/bandsAPI'
 
 export interface Band {
   name: string,
-  imgUrl: string
+  imgUrl: string,
+  discogsId?: number
 }
 
 export interface BandsState {
-  status: 'idle' | 'checking' | 'failed'
+  status: 'idle' | 'fetching' | 'failed'
   bands: Band[]
   used: string[]
   previous: string
@@ -31,6 +32,22 @@ export const checkBandAsync = createAsyncThunk<Band, string>(
   }
 )
 
+export const getBandAsync = createAsyncThunk(
+  'bands/getBand',
+  async (payload: GetBandPayload) => {
+    try {
+      const band = await getBand(payload)
+      console.log('Band in getBandAsync:', band)
+      
+      return band
+      
+    } catch (error) {
+      console.log(error);
+      return null 
+    }
+  } 
+)
+
 export const bandsSlice = createSlice({
   name: 'bands',
   initialState,
@@ -42,7 +59,7 @@ export const bandsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(checkBandAsync.pending, state => {
-        state.status = 'checking'
+        state.status = 'fetching'
       })
       .addCase(checkBandAsync.fulfilled, (state, action: PayloadAction<Band>) => {
         state.approved = !!action.payload
@@ -50,6 +67,16 @@ export const bandsSlice = createSlice({
         state.used.push(action.payload.name)
         state.status = 'idle'
       })
+      .addCase(getBandAsync.pending, state => {
+        state.status = 'fetching'
+      })
+      .addCase(getBandAsync.fulfilled, (state, action: PayloadAction<Band | null>) => {
+        if (action.payload) {
+          state.bands.push(action.payload)
+          state.used.push(action.payload.name)
+        }
+        state.status = 'idle'
+      })  
   }
 })
 
