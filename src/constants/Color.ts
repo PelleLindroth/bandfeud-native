@@ -8,3 +8,5 @@ export default {
   GOLD: 'rgb(247, 175, 73)',
   RED: '#f53f42'
 }
+
+// skip capitals?

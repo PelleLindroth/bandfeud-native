@@ -1,11 +1,18 @@
 import axios from 'axios'
 import { Highscore } from '../store/highscoreSlice'
 
-export const fetchHighscores = () => {
-  return new Promise<{ data: Highscore[] }>(async (resolve, reject) => {
-    const highscores = await axios.get('https://bandfeud-api.herokuapp.com/api/highscores/get')
+const highscoresAPI = axios.create({
+  baseURL: 'https://bandfeud-api.herokuapp.com/api/highscores'
+})
 
-    resolve(highscores)
+export const fetchHighscores = () => {
+  return new Promise<Highscore[]>(async (resolve, reject) => {
+    try {
+      const highscores = await highscoresAPI.get('/get')
+      resolve(highscores.data)
+    } catch (err) {
+      reject(err)
+    }
   }
   )
 }

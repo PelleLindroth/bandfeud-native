@@ -13,7 +13,7 @@ type StackProps = {
   }
 }
 
-const Highscores = ({navigation, route}: StackProps ) => {
+const Highscores = ({ navigation }: StackProps ) => {
   const handleShowHighscore = (highscore: Highscore) => {
     navigation.navigate('Single Highscore',  { highscore })
   }

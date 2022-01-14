@@ -1,39 +1,34 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { Band } from '../store/bandsSlice'
+import { GetBandPayload } from './types'
 
 const bandsAPI = axios.create({
-  baseURL: 'https://bandfeud-api.herokuapp.com/api/bands'
+  baseURL: 'https://bandfeud-api.herokuapp.com/api/bands',
 })
 
-export type GetBandPayload = {
-  used: string[],
-  previous: string
-}
-
-export const checkBand = (bandName: string) => {  
+export const checkBand = (bandName: string) => {
   return new Promise<Band>(async (resolve, reject) => {
     try {
-      const response = await bandsAPI.post(`/check?name=${encodeURI(bandName.toLowerCase())}`)
-      const band = response.data
-      band.url = band.imgUrl
+      const response: AxiosResponse<Band> = await bandsAPI.post(
+        `/check?name=${encodeURIComponent(bandName.toLowerCase())}`
+      )
+      const band: Band = { ...response.data, url: response.data.imgUrl }
 
       resolve(band)
-    } catch(err) {          
+    } catch (err) {
       reject(err)
     }
-  }
-  )
+  })
 }
 
-export const getBand = (payload: GetBandPayload) => {  
+export const getBand = (payload: GetBandPayload) => {
   return new Promise<Band>(async (resolve, reject) => {
     try {
-      const response = await bandsAPI.post('/get', payload)
-      const band = response.data
-      band.url = band.imgUrl
+      const response: AxiosResponse<Band> = await bandsAPI.post('/get', payload)
+      const band: Band = { ...response.data, url: response.data.imgUrl }
 
       resolve(band)
-    } catch (err) {      
+    } catch (err) {
       reject(err)
     }
   })

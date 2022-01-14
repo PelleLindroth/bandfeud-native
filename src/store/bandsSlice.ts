@@ -1,13 +1,15 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { checkBand, getBand, GetBandPayload } from '../api/bandsAPI'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { GetBandPayload } from '../api/types'
+import { checkBand, getBand } from '../api/bandsAPI'
+import { getInitPrevious } from './utils'
 
 export interface Band {
-  name: string,
-  url?: string,
+  name: string
+  url?: string
   imgUrl?: string
-  discogsId?: number,
-  id?: number, 
-  points?: Number, 
+  discogsId?: number
+  id?: number
+  points?: Number
   mode?: string
 }
 
@@ -15,7 +17,7 @@ export interface BandsState {
   status: 'idle' | 'fetching' | 'failed'
   bands: Band[]
   used: string[]
-  previous: string
+  previous: string | undefined
   approved: boolean
 }
 
@@ -23,16 +25,23 @@ const initialState: BandsState = {
   status: 'idle',
   bands: [],
   used: [],
-  previous: 'a',
-  approved: false
+  previous: undefined,
+  approved: false,
 }
 
-export const checkBandAsync = createAsyncThunk<Band, string>(
+export const checkBandAsync = createAsyncThunk(
   'bands/checkBand',
-   async bandName => {     
-    const band = await checkBand(bandName)
-    
-    return band
+  async (bandName: string) => {
+    try {
+      const band = await checkBand(bandName)
+      if (band) {
+        return band
+      } else {
+        throw 'not found'
+      }
+    } catch (error) {
+      throw 'not found'
+    }
   }
 )
 
@@ -41,49 +50,60 @@ export const getBandAsync = createAsyncThunk(
   async (payload: GetBandPayload) => {
     try {
       const band = await getBand(payload)
-
       return band
-      
     } catch (error) {
-      console.log(error)
-      return null 
+      return null
     }
-  } 
+  }
 )
 
 export const bandsSlice = createSlice({
   name: 'bands',
   initialState,
   reducers: {
-    addBand: (state, action: PayloadAction<Band>) => {
-      state.bands.push(action.payload)
-    }
-  }, 
+    clear: () => initialState,
+    initPrevious: (state) => {
+      state.previous = getInitPrevious()
+    },
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(checkBandAsync.pending, state => {
+      .addCase(checkBandAsync.pending, (state) => {
         state.status = 'fetching'
       })
-      .addCase(checkBandAsync.fulfilled, (state, action: PayloadAction<Band>) => {
-        state.approved = !!action.payload
-        state.bands.push(action.payload)
-        state.used.push(action.payload.name)
-        state.status = 'idle'
-      })
-      .addCase(getBandAsync.pending, state => {
-        state.status = 'fetching'
-      })
-      .addCase(getBandAsync.fulfilled, (state, action: PayloadAction<Band | null>) => {
-        if (action.payload) {
-          state.bands.push(action.payload)
-          state.used.push(action.payload.name)
+      .addCase(
+        checkBandAsync.fulfilled,
+        (state, action: PayloadAction<Band | null>) => {
+          if (action.payload) {
+            state.previous = action.payload.name.slice(-1)
+            state.approved = true
+            state.bands.push(action.payload)
+            state.used.push(action.payload.name)
+          }
+          state.status = 'idle'
         }
-        state.status = 'idle'
-      })  
-  }
+      )
+      .addCase(checkBandAsync.rejected, (state, action) => {
+        state.used.push(action.meta.arg)
+        state.approved = false
+      })
+      .addCase(getBandAsync.pending, (state) => {
+        state.status = 'fetching'
+      })
+      .addCase(
+        getBandAsync.fulfilled,
+        (state, action: PayloadAction<Band | null>) => {
+          if (action.payload) {
+            state.bands.push(action.payload)
+            state.used.push(action.payload.name)
+            state.previous = action.payload.name.slice(-1)
+          }
+
+          state.status = 'idle'
+        }
+      )
+  },
 })
 
+export const { clear, initPrevious } = bandsSlice.actions
 export default bandsSlice.reducer
-
-
-
