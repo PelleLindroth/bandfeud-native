@@ -27,5 +27,8 @@ export const getInitPrevious = () => {
     'y',
     'z',
   ]
-  return alphabet[Math.floor(Math.random() * 26)]
+  const previous = alphabet[Math.floor(Math.random() * 26)]
+  console.log(`Returning ${previous}`)
+
+  return previous
 }

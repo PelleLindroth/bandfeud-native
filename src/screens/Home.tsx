@@ -1,34 +1,23 @@
 import React from 'react'
 import { Pressable, Image, StyleSheet } from 'react-native'
-import { useAppDispatch } from '../store/hooks'
-import { startGame } from '../store/gameSlice'
-import { NavigationProps } from '../constants/Type'
+import { NavigationProps } from '../constants/Props'
 import BaseView from '../components/BaseView'
 import * as Measure from '../constants/Measure'
 
-const Home = ({ navigation }: NavigationProps) => {
-  const dispatch = useAppDispatch()
-
-  const handleStartGame = () => {
-    dispatch(startGame())
-    navigation.navigate('Play')
-  }
-
-  return (
-    <BaseView>
+const Home = ({ navigation }: NavigationProps) => (
+  <BaseView>
+    <Image
+      style={styles.logo}
+      source={require('../assets/bandfeud-logo-square.png')}
+    />
+    <Pressable onPress={() => navigation.navigate('Play')}>
       <Image
-        style={styles.logo}
-        source={require('../assets/bandfeud-logo-square.png')}
+        style={styles.playIcon}
+        source={require('../assets/play-icon.png')}
       />
-      <Pressable onPress={handleStartGame}>
-        <Image
-          style={styles.playIcon}
-          source={require('../assets/play-icon.png')}
-        />
-      </Pressable>
-    </BaseView>
-  )
-}
+    </Pressable>
+  </BaseView>
+)
 
 const styles = StyleSheet.create({
   logo: {

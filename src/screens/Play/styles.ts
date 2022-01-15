@@ -12,19 +12,4 @@ export default StyleSheet.create({
     height: Measure.ICON_SIDE,
     width: Measure.ICON_SIDE,
   },
-  bandView: {
-    alignSelf: 'center',
-    flexDirection: 'row',
-  },
-  gameOverWrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    height: Measure.IMAGE_SIDE,
-    justifyContent: 'center',
-    width: Measure.IMAGE_SIDE,
-  },
-  gameOverImage: {
-    height: Measure.IMAGE_SIDE * 0.5,
-    width: Measure.IMAGE_SIDE * 0.9,
-  },
 })

@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { TextInput } from 'react-native-gesture-handler'
-import { FontSize } from '../../../../constants/TypeScale'
-import { InputFieldProps, WordLength } from './types'
+import { FontSize } from '../../../../../../../../constants/TypeScale'
+import { WordLength } from '../../../../../../../../constants/Measure'
 import styles from './styles'
+import { GameContext } from '../../../../../../../../store/contexts/GameContext'
 
-const InputField = (props: InputFieldProps) => {
-  const { inputText, setInputText, handleCheckBand } = props
+const InputField = () => {
+  const { inputText, setInputText, handleCheckBand } = useContext(GameContext)!
 
   return (
     <TextInput

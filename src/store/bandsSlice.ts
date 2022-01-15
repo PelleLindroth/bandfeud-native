@@ -33,6 +33,8 @@ export const checkBandAsync = createAsyncThunk(
   'bands/checkBand',
   async (bandName: string) => {
     try {
+      console.log(`checking ${bandName}`)
+
       const band = await checkBand(bandName)
       if (band) {
         return band
@@ -50,6 +52,7 @@ export const getBandAsync = createAsyncThunk(
   async (payload: GetBandPayload) => {
     try {
       const band = await getBand(payload)
+
       return band
     } catch (error) {
       return null
@@ -61,9 +64,12 @@ export const bandsSlice = createSlice({
   name: 'bands',
   initialState,
   reducers: {
-    clear: () => initialState,
+    resetBandState: () => initialState,
     initPrevious: (state) => {
       state.previous = getInitPrevious()
+    },
+    setApprovedToFalse: (state) => {
+      state.approved = false
     },
   },
   extraReducers: (builder) => {
@@ -88,6 +94,7 @@ export const bandsSlice = createSlice({
         state.approved = false
       })
       .addCase(getBandAsync.pending, (state) => {
+        state.approved = false
         state.status = 'fetching'
       })
       .addCase(
@@ -105,5 +112,6 @@ export const bandsSlice = createSlice({
   },
 })
 
-export const { clear, initPrevious } = bandsSlice.actions
+export const { resetBandState, initPrevious, setApprovedToFalse } =
+  bandsSlice.actions
 export default bandsSlice.reducer

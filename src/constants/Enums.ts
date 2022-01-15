@@ -12,10 +12,14 @@ export enum Time {
 }
 
 export enum Message {
-  TYPE = 'PRESS HERE TO TYPE',
+  EMPTY = '',
+  TYPE = 'PRESS TO TYPE',
+  WAITING = 'WAITING FOR OPPONENT...',
+  PLAY = 'PRESS TO PLAY',
+  OPPONENT = 'OPPONENT PLAYED',
   GET_READY = 'GET READY...',
   CHECKING = 'CHECKING...',
-  CORRECT = 'CORRECT',
+  CORRECT = 'CORRECT!',
   ALREADY_USED = 'Already used!',
   NOT_FOUND = 'No such band or artist!',
   OUT_OF_TIME = "Time's up, snailfinger!",

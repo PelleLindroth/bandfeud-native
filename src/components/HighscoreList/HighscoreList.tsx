@@ -1,9 +1,9 @@
-import React from "react"
-import { ListRenderItem } from "react-native"
-import { Pressable, Text, FlatList, StyleSheet } from 'react-native'
+import React from 'react'
+import { ListRenderItem } from 'react-native'
+import { Pressable, Text, FlatList } from 'react-native'
 import { useAppSelector } from '../../store/hooks'
 import { Highscore } from '../../store/highscoreSlice'
-import TypeScale from "../../constants/TypeScale"
+import TypeScale from '../../constants/TypeScale'
 import styles from './styles'
 
 type HighscoreListProps = {
@@ -11,7 +11,7 @@ type HighscoreListProps = {
 }
 
 const HighscoreList = (props: HighscoreListProps) => {
-  const {data, status} = useAppSelector(state => state.highscores)
+  const { highscores, status } = useAppSelector((state) => state.highscores)
 
   const renderItem: ListRenderItem<Highscore> = ({ item }) => (
     <Pressable onPress={() => props.showHighscore(item)} style={styles.row}>
@@ -22,22 +22,20 @@ const HighscoreList = (props: HighscoreListProps) => {
 
   return (
     <>
-    {
-      status === "loading" ? (
+      {status === 'loading' ? (
         <Text style={TypeScale.loading}>Loading...</Text>
       ) : (
         <>
-        <Text style={TypeScale.h1}>Highscores</Text>
-        <FlatList<Highscore>
+          <Text style={TypeScale.h1}>Highscores</Text>
+          <FlatList<Highscore>
             scrollEnabled={false}
-            data={data}
+            data={highscores}
             renderItem={renderItem}
             keyExtractor={(item) => item._id}
             style={styles.list}
-        />
+          />
         </>
-      )
-    }
+      )}
     </>
   )
 }
