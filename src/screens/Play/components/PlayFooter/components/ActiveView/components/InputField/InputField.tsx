@@ -16,7 +16,7 @@ const InputField = () => {
       importantForAutofill="no"
       keyboardAppearance="dark"
       value={inputText}
-      onChangeText={(text) => setInputText(text)}
+      onChangeText={(text) => setInputText(text.toUpperCase())}
       onSubmitEditing={handleCheckBand}
       style={[
         styles.input,
@@ -29,7 +29,6 @@ const InputField = () => {
               : FontSize.MEDIUM,
         },
       ]}
-      autoCapitalize="characters"
     />
   )
 }
