@@ -5,7 +5,7 @@ import {
   getBandAsync,
   checkBandAsync,
   initPrevious,
-  resetBandState,
+  resetBandsState,
 } from '../bandsSlice'
 import { checkHighscoreAsync, resetPlayerHasHighscore } from '../highscoreSlice'
 import { useAppSelector, useAppDispatch } from '../hooks'
@@ -110,7 +110,7 @@ const GameContextProvider = (props: any) => {
 
     if (isFulfilled(action)) {
       console.log(action)
-      dispatch(resetBandState())
+      dispatch(resetBandsState())
     }
   }
 

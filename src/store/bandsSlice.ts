@@ -33,8 +33,6 @@ export const checkBandAsync = createAsyncThunk(
   'bands/checkBand',
   async (bandName: string) => {
     try {
-      console.log(`checking ${bandName}`)
-
       const band = await checkBand(bandName)
       if (band) {
         return band
@@ -64,7 +62,7 @@ export const bandsSlice = createSlice({
   name: 'bands',
   initialState,
   reducers: {
-    resetBandState: () => initialState,
+    resetBandsState: () => initialState,
     initPrevious: (state) => {
       state.previous = getInitPrevious()
     },
@@ -112,6 +110,6 @@ export const bandsSlice = createSlice({
   },
 })
 
-export const { resetBandState, initPrevious, setApprovedToFalse } =
+export const { resetBandsState, initPrevious, setApprovedToFalse } =
   bandsSlice.actions
 export default bandsSlice.reducer
