@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
-import Color from '../../constants/Color'
+import Color from '../../../../constants/Color'
 
 export default StyleSheet.create({
   list: {
     flexGrow: 0,
-    marginTop: 5
+    marginTop: 5,
   },
   row: {
     alignSelf: 'center',
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: 2,
     paddingHorizontal: 30,
-    width: '75%'
+    width: '75%',
   },
   column: {
     color: Color.OFF_WHITE,
@@ -23,10 +23,10 @@ export default StyleSheet.create({
   nameColumn: {
     flexGrow: 1,
     textAlign: 'left',
-    width: '50%'
+    width: '50%',
   },
   scoreColumn: {
- flexGrow: 1,
-    textAlign: 'right'
-  }
+    flexGrow: 1,
+    textAlign: 'right',
+  },
 })

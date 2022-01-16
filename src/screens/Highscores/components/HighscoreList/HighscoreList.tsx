@@ -1,9 +1,9 @@
 import React from 'react'
 import { ListRenderItem } from 'react-native'
 import { Pressable, Text, FlatList } from 'react-native'
-import { useAppSelector } from '../../store/hooks'
-import { Highscore } from '../../store/highscoreSlice'
-import TypeScale from '../../constants/TypeScale'
+import { useAppSelector } from '../../../../store/hooks'
+import { Highscore } from '../../../../store/highscoreSlice'
+import TypeScale from '../../../../constants/TypeScale'
 import styles from './styles'
 
 type HighscoreListProps = {
