@@ -7,7 +7,7 @@ import { PayloadAction } from '@reduxjs/toolkit'
 export interface GameContextInterface {
   game: boolean
   bands: Band[]
-  displayedBands: Band[]
+  currentBand: Band | null
   previous: string | undefined
   used: string[]
   approved: boolean

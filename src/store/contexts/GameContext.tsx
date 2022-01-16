@@ -9,8 +9,7 @@ import {
 } from '../bandsSlice'
 import { checkHighscoreAsync, resetPlayerHasHighscore } from '../highscoreSlice'
 import { useAppSelector, useAppDispatch } from '../hooks'
-import { isOddNumber } from '../../global-utils'
-import { Message, Time } from '../../constants/Enums'
+import { Message } from '../../constants/Enums'
 import { GameContextInterface } from './GameTypes'
 
 export const GameContext = React.createContext<GameContextInterface | null>(
@@ -34,16 +33,12 @@ const GameContextProvider = (props: any) => {
     Message.CORRECT
   )
   const [showFeedback, setShowFeedback] = useState<boolean>(false)
-  const [displayedBands, setDisplayedBands] = useState<Band[]>([])
+  const [currentBand, setCurrentBand] = useState<Band | null>(null)
   const [message, setMessage] = useState<Message>(Message.TYPE)
   const [waiting, setWaiting] = useState<boolean>(false)
   const [playerTurn, setPlayerTurn] = useState<boolean>(true)
   const [isTyping, setIsTyping] = useState<boolean>(false)
   const [inputText, setInputText] = useState<string>('')
-
-  // useEffect(() => {
-  //   console.log(bands)
-  // }, [bands])
 
   const handleStartGame = () => {
     dispatch(initPrevious())
@@ -67,7 +62,7 @@ const GameContextProvider = (props: any) => {
         checkBandAsync(inputText.trim().toLowerCase())
       )
       if (isFulfilled(action)) {
-        setDisplayedBands([...displayedBands, action.payload])
+        setCurrentBand(action.payload)
         setMessage(Message.WAITING)
         setWaiting(true)
         setCurrentFeedback(Message.CORRECT)
@@ -83,7 +78,7 @@ const GameContextProvider = (props: any) => {
   const handleOpponentTurn = async () => {
     if (message === Message.WAITING) return
     setCurrentFeedback(Message.OPPONENT)
-    setDisplayedBands([...bands])
+    setCurrentBand(bands[bands.length - 1])
     setShowPrevious(true)
     setMessage(Message.TYPE)
     setPlayerTurn(true)
@@ -130,7 +125,7 @@ const GameContextProvider = (props: any) => {
   const gameContext: GameContextInterface = {
     game,
     bands,
-    displayedBands,
+    currentBand,
     previous,
     used,
     approved,
