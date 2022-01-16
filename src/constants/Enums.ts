@@ -1,10 +1,3 @@
-export enum Fail {
-  ALREADY_USED,
-  NOT_FOUND,
-  OUT_OF_TIME,
-  WRONG_LETTER,
-}
-
 export enum Time {
   short = 1000,
   medium = 2000,
