@@ -17,9 +17,9 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.02)',
     borderRadius: 10,
     height: Measure.IMAGE_SIDE,
-    justifyContent: 'center',
     marginBottom: 10,
     width: Measure.IMAGE_WIDTH,
+    overflow: 'hidden',
   },
   gameOverImage: {
     height: 120,
@@ -30,5 +30,7 @@ export default StyleSheet.create({
     height: Measure.IMAGE_SIDE,
     resizeMode: 'cover',
     width: Measure.IMAGE_WIDTH,
+    position: 'absolute',
+    top: 0,
   },
 })

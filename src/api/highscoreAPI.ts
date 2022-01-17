@@ -16,13 +16,14 @@ export const fetchHighscores = () => {
   })
 }
 
-export const checkHighscore = (score: number): Promise<boolean> => {
-  return new Promise<boolean>(async (resolve, reject) => {
+export const checkHighscore = (
+  score: number
+): Promise<AxiosResponse<boolean>> => {
+  return new Promise<AxiosResponse<boolean>>(async (resolve, reject) => {
     try {
-      const isHighscore: AxiosResponse<boolean> = await highscoresAPI.get(
-        `/check?score=${score}`
-      )
-      resolve(isHighscore.data)
+      const isHighscoreResponse: AxiosResponse<boolean> =
+        await highscoresAPI.get(`/check?score=${score}`)
+      resolve(isHighscoreResponse)
     } catch (error) {
       reject(error)
     }

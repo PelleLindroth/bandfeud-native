@@ -3,10 +3,10 @@ import { TextInput } from 'react-native-gesture-handler'
 import { FontSize } from '../../../../../../../../constants/TypeScale'
 import { WordLength } from '../../../../../../../../constants/Measure'
 import styles from './styles'
-import { GameContext } from '../../../../../../../../store/contexts/GameContext'
+import { LogicContext } from '../../../../../../../../store/contexts/LogicContext/LogicContext'
 
 const InputField = () => {
-  const { inputText, setInputText, handleCheckBand } = useContext(GameContext)!
+  const { inputText, setInputText, checkBand } = useContext(LogicContext)!
 
   return (
     <TextInput
@@ -17,7 +17,7 @@ const InputField = () => {
       keyboardAppearance="dark"
       value={inputText}
       onChangeText={(text) => setInputText(text.toUpperCase())}
-      onSubmitEditing={handleCheckBand}
+      onSubmitEditing={checkBand}
       style={[
         styles.input,
         {

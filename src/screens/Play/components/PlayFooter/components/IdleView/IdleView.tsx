@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { View } from 'react-native'
-import { GameContext } from '../../../../../../store/contexts/GameContext'
+import { LogicContext } from '../../../../../../store/contexts/LogicContext/LogicContext'
 import { NavigationProps } from '../../../../../../constants/Props'
 import Previous from '../Previous'
 import styles from '../../styles'
@@ -8,7 +8,7 @@ import StatusMessage from './components/StatusMessage'
 import CloseIcon from './components/CloseIcon'
 
 const IdleView = (props: NavigationProps) => {
-  const { game } = useContext(GameContext)!
+  const { game } = useContext(LogicContext)!
 
   return (
     <View style={styles.footer}>

@@ -1,20 +1,17 @@
-import { Band } from '../bandsSlice'
-import { Highscore } from '../highscoreSlice'
-import { Message } from '../../constants/Enums'
-import { GetBandPayload } from '../../api/types'
-import { PayloadAction } from '@reduxjs/toolkit'
+import { Band } from '../../bandsSlice'
+import { Highscore } from '../../highscoreSlice'
+import { Message } from '../../../constants/Enums'
 
-export interface GameContextInterface {
+export interface LogicContextInterface {
   game: boolean
   bands: Band[]
   currentBand: Band | null
   previous: string | undefined
   used: string[]
-  approved: boolean
   message: Message
   waiting: boolean
   playerTurn: boolean
-  handleOpponentTurn: () => void
+  setOpponentView: () => void
   showFeedback: boolean
   currentFeedback: Message
   inputText: string
@@ -28,7 +25,7 @@ export interface GameContextInterface {
   showPrevious: boolean
   count: number
   setCount: React.Dispatch<React.SetStateAction<number>>
-  handleStartGame: () => void
-  handleCheckBand: () => void
+  startGame: () => void
+  checkBand: () => void
   endGame: (message: Message) => void
 }

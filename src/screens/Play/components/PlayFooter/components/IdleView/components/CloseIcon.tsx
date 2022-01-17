@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { Pressable, Image } from 'react-native'
 import { NavigationProps } from '../../../../../../../constants/Props'
-import { GameContext } from '../../../../../../../store/contexts/GameContext'
+import { LogicContext } from '../../../../../../../store/contexts/LogicContext/LogicContext'
 import styles from '../../../styles'
 
 const CloseIcon = (props: NavigationProps) => {
-  const { game } = useContext(GameContext)!
+  const { game } = useContext(LogicContext)!
 
   return (
     <Pressable onPress={() => !game && props.navigation.navigate('Home')}>

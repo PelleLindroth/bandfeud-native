@@ -7,6 +7,10 @@ export const store = configureStore({
     highscores: highscoreReducer,
     bands: bandsReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 })
 
 export type AppDispatch = typeof store.dispatch

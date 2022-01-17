@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { AxiosResponse } from 'axios'
 import { checkHighscore, fetchHighscores } from '../api/highscoreAPI'
 import { Band } from './bandsSlice'
 
@@ -34,13 +35,11 @@ export const fetchHighscoresAsync = createAsyncThunk(
 export const checkHighscoreAsync = createAsyncThunk(
   'highscores/checkHighscore',
   async (score: number) => {
-    const isHighscore = await checkHighscore(score)
-    console.log(`isHighscore in checkHighscoreAsync`)
-    console.log(isHighscore)
+    try {
+      const isHighscore: AxiosResponse<boolean> = await checkHighscore(score)
 
-    if (isHighscore) {
       return isHighscore
-    } else {
+    } catch (error) {
       throw new Error('Unable to connect to database')
     }
   }
@@ -71,8 +70,8 @@ export const highscoreSlice = createSlice({
       )
       .addCase(
         checkHighscoreAsync.fulfilled,
-        (state, action: PayloadAction<boolean>) => {
-          state.playerHasHighscore = action.payload
+        (state, action: PayloadAction<AxiosResponse<boolean>>) => {
+          state.playerHasHighscore = action.payload.data
         }
       )
   },
