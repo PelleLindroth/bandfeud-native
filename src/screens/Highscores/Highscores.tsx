@@ -1,6 +1,6 @@
 import React from 'react'
-import BaseView from '../../components/BaseView'
-import LogoSquare from '../../components/LogoSquare'
+import BaseView from '../components/BaseView'
+import LogoSquare from '../components/LogoSquare'
 import HighscoreList from './components/HighscoreList'
 import { StackProps } from './types'
 import { Highscore } from '../../store/highscoreSlice'

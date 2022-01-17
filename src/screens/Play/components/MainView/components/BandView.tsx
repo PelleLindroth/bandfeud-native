@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import BandCard from '../../../../../components/BandCard'
+import BandCard from '../../../../components/BandCard'
 import * as Measure from '../../../../../constants/Measure'
 import * as Device from '../../../../../constants/Device'
 import { BandViewTypes } from '../types'
