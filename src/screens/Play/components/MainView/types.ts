@@ -1,5 +1,5 @@
 import { Band } from '../../../../store/bandsSlice'
-import { Message } from '../../../../constants/Enums'
+import { Message } from '../../../constants/Enums'
 
 export type MainViewProps = {
   isTyping: boolean

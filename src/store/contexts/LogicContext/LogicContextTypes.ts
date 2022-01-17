@@ -1,6 +1,6 @@
 import { Band } from '../../bandsSlice'
 import { Highscore } from '../../highscoreSlice'
-import { Message } from '../../../constants/Enums'
+import { Message } from '../../../screens/constants/Enums'
 
 export interface LogicContextInterface {
   game: boolean

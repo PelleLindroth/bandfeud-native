@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { View } from 'react-native'
 import { LogicContext } from '../../../../../../store/contexts/LogicContext/LogicContext'
-import { NavigationProps } from '../../../../../../constants/Props'
+import { NavigationProps } from '../../../../../constants/Props'
 import Previous from '../Previous'
 import styles from '../../styles'
 import StatusMessage from './components/StatusMessage'

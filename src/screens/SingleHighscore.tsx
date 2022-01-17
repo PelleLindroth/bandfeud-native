@@ -14,9 +14,9 @@ import { NavigationScreenProp } from 'react-navigation'
 import { Highscore } from '../store/highscoreSlice'
 import { Band } from '../store/bandsSlice'
 import BandCard from './components/BandCard'
-import Color from '../constants/Color'
-import TypeScale from '../constants/TypeScale'
-import * as Measure from '../constants/Measure'
+import Color from './constants/Color'
+import TypeScale from './constants/TypeScale'
+import * as Measure from './constants/Measure'
 
 type Props = {
   route: {

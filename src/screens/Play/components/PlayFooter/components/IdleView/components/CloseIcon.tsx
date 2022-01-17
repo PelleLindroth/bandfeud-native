@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Pressable, Image } from 'react-native'
-import { NavigationProps } from '../../../../../../../constants/Props'
+import { NavigationProps } from '../../../../../../constants/Props'
 import { LogicContext } from '../../../../../../../store/contexts/LogicContext/LogicContext'
 import styles from '../../../styles'
 

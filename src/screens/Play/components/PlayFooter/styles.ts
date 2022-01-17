@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
-import Color from '../../../../constants/Color'
-import * as Measure from '../../../../constants/Measure'
-import { FontSize } from '../../../../constants/TypeScale'
+import Color from '../../../constants/Color'
+import * as Measure from '../../../constants/Measure'
+import { FontSize } from '../../../constants/TypeScale'
 
 export default StyleSheet.create({
   footer: {

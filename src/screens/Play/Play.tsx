@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { LogicContext } from '../../store/contexts/LogicContext/LogicContext'
-import { NavigationProps } from '../../constants/Props'
+import { NavigationProps } from '../constants/Props'
 import BaseView from '../components/BaseView'
 import MainView from './components/MainView'
 import PlayFooter from './components/PlayFooter'

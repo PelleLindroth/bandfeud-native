@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { TextInput } from 'react-native-gesture-handler'
-import { FontSize } from '../../../../../../../../constants/TypeScale'
-import { WordLength } from '../../../../../../../../constants/Measure'
+import { FontSize } from '../../../../../../../constants/TypeScale'
+import { WordLength } from '../../../../../../../constants/Measure'
 import styles from './styles'
 import { LogicContext } from '../../../../../../../../store/contexts/LogicContext/LogicContext'
 

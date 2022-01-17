@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { LogicContext } from '../../../../store/contexts/LogicContext/LogicContext'
-import { NavigationProps } from '../../../../constants/Props'
+import { NavigationProps } from '../../../constants/Props'
 import ActiveView from './components/ActiveView'
 import IdleView from './components/IdleView'
 

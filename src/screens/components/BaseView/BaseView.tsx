@@ -1,7 +1,7 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, GestureResponderEvent } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import Color from '../../../constants/Color'
+import Color from '../../constants/Color'
 import styles from './styles'
 
 type BaseProps = {

@@ -6,7 +6,7 @@ import About from '../screens/About'
 import HighscoreStack from './HighscoreStack'
 import { useAppDispatch } from '../store/hooks'
 import { fetchHighscoresAsync } from '../store/highscoreSlice'
-import Color from '../constants/Color'
+import Color from '../screens/constants/Color'
 import { StyleSheet } from 'react-native'
 
 const Tab = createBottomTabNavigator()

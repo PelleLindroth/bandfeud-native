@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { View, Image, Text } from 'react-native'
 import { Band } from '../../../store/bandsSlice'
-import TypeScale from '../../../constants/TypeScale'
+import TypeScale from '../../constants/TypeScale'
 import styles from './styles'
 
 type Props = {

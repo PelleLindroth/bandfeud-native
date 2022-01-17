@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
-import Color from '../../../../../../../../constants/Color'
-import * as Measure from '../../../../../../../../constants/Measure'
-import * as Device from '../../../../../../../../constants/Device'
+import Color from '../../../../../../../constants/Color'
+import * as Measure from '../../../../../../../constants/Measure'
+import * as Device from '../../../../../../../constants/Device'
 
 const styles = StyleSheet.create({
   input: {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from 'react-native'
-import TypeScale from '../../../../../constants/TypeScale'
-import { Message } from '../../../../../constants/Enums'
+import TypeScale from '../../../../constants/TypeScale'
+import { Message } from '../../../../constants/Enums'
 
 type MessageViewProps = {
   message: Message

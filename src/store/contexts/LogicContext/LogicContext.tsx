@@ -12,7 +12,7 @@ import {
   resetPlayerHasHighscore,
 } from '../../highscoreSlice'
 import { useAppSelector, useAppDispatch } from '../../hooks'
-import { Message } from '../../../constants/Enums'
+import { Message } from '../../../screens/constants/Enums'
 import { LogicContextInterface } from './LogicContextTypes'
 
 export const LogicContext = React.createContext<LogicContextInterface | null>(

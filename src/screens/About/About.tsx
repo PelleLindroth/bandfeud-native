@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import BaseView from '../components/BaseView'
 import LogoSquare from '../components/LogoSquare'
-import TypeScale from '../../constants/TypeScale'
+import TypeScale from '../constants/TypeScale'
 
 const About = () => {
   return (

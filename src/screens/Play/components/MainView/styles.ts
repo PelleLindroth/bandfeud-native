@@ -1,8 +1,8 @@
 import { LuckiestGuy_400Regular } from '@expo-google-fonts/luckiest-guy'
 import { StyleSheet } from 'react-native'
-import Color from '../../../../constants/Color'
-import * as Measure from '../../../../constants/Measure'
-import { FontSize } from '../../../../constants/TypeScale'
+import Color from '../../../constants/Color'
+import * as Measure from '../../../constants/Measure'
+import { FontSize } from '../../../constants/TypeScale'
 
 export default StyleSheet.create({
   mainView: {

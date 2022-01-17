@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Pressable, Text } from 'react-native'
 import { LogicContext } from '../../../../../../../store/contexts/LogicContext/LogicContext'
-import TypeScale from '../../../../../../../constants/TypeScale'
+import TypeScale from '../../../../../../constants/TypeScale'
 
 const StatusMessage = () => {
   const { message, waiting, setIsTyping, playerTurn, setOpponentView } =

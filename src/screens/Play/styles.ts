@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import * as Measure from '../../constants/Measure'
+import * as Measure from '../constants/Measure'
 
 export default StyleSheet.create({
   logo: {

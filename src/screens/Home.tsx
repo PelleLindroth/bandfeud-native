@@ -1,8 +1,8 @@
 import React from 'react'
 import { Pressable, Image, StyleSheet } from 'react-native'
-import { NavigationProps } from '../constants/Props'
+import { NavigationProps } from './constants/Props'
 import BaseView from './components/BaseView'
-import * as Measure from '../constants/Measure'
+import * as Measure from './constants/Measure'
 
 const Home = ({ navigation }: NavigationProps) => (
   <BaseView>
