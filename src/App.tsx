@@ -13,6 +13,7 @@ import { LuckiestGuy_400Regular } from '@expo-google-fonts/luckiest-guy'
 import MainStack from './navigators/MainStack'
 import AppLoading from 'expo-app-loading'
 import { store } from './store'
+import UIContextProvider from './store/contexts/UIContext/UIContext'
 import LogicContextProvider from './store/contexts/LogicContext/LogicContext'
 
 const App = () => {
@@ -29,12 +30,14 @@ const App = () => {
   } else {
     return (
       <Provider store={store}>
-        <LogicContextProvider>
-          <StatusBar barStyle={'light-content'} />
-          <NavigationContainer>
-            <MainStack />
-          </NavigationContainer>
-        </LogicContextProvider>
+        <UIContextProvider>
+          <LogicContextProvider>
+            <StatusBar barStyle={'light-content'} />
+            <NavigationContainer>
+              <MainStack />
+            </NavigationContainer>
+          </LogicContextProvider>
+        </UIContextProvider>
       </Provider>
     )
   }

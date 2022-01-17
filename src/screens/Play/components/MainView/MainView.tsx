@@ -5,10 +5,12 @@ import BandView from './components/BandView'
 import GameOverLabel from './components/GameOverLabel'
 import Feedback from './components/Feedback'
 import styles from './styles'
+import { UIContext } from '../../../../store/contexts/UIContext/UIContext'
 
 const MainView = () => {
-  const { currentBand, game, isTyping, showFeedback, currentFeedback } =
-    useContext(LogicContext)!
+  const { game } = useContext(LogicContext)!
+  const { currentBand, isTyping, showFeedback, currentFeedback } =
+    useContext(UIContext)!
 
   return (
     <View style={styles.mainView}>

@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 import { Pressable, Text } from 'react-native'
 import { LogicContext } from '../../../../../../../store/contexts/LogicContext/LogicContext'
+import { UIContext } from '../../../../../../../store/contexts/UIContext/UIContext'
 import TypeScale from '../../../../../../constants/TypeScale'
 
 const StatusMessage = () => {
-  const { message, waiting, setIsTyping, playerTurn, setOpponentView } =
-    useContext(LogicContext)!
+  const { handleSetOpponentView } = useContext(LogicContext)!
+  const { message, setIsTyping, playerTurn } = useContext(UIContext)!
 
   return (
     <Pressable
-      disabled={waiting}
-      onPress={() => (playerTurn ? setIsTyping(true) : setOpponentView())}
+      onPress={() => (playerTurn ? setIsTyping(true) : handleSetOpponentView())}
     >
       <Text style={TypeScale.h2}>{message}</Text>
     </Pressable>
